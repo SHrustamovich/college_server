@@ -1,4 +1,10 @@
 const {fetch,fetchAll} = require('../../lib/postgres')
+const ALLNEWS = `
+SELECT
+  * 
+FROM
+  news
+`
 const NEWS  = `
 SELECT
   *
@@ -42,6 +48,7 @@ WHERE
   news_id = $2
 RETURNING *
 `
+const AllNews  =() => fetchAll(ALLNEWS)
 const News  = () => fetchAll(NEWS)
 const C_News = (news_title,news_body,news_pics) => fetch(Create_NEWS,news_title,news_body,news_pics)
 const Update = (news_title,news_body,news_pics,news_id) => fetch(Update_NEWS,news_title,news_body,news_pics,news_id)
@@ -52,5 +59,6 @@ module.exports = {
     C_News,
     Update,
     Change,
-    Delete
+    Delete,
+    AllNews
 }

@@ -11,5 +11,5 @@ const { PORT } = require("./config")
 app.use(router)
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use('/public', express.static(path.resolve(__dirname, './public')))
+app.use('/public', express.static('/public'))
 app.listen(9000,console.log('create server!'))

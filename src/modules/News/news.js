@@ -13,6 +13,17 @@ module.exports = {
             })
         }
     },
+    GETALL:async(_,res) => {
+        try{
+            const News = await model.AllNews()
+            res.send(News)
+        }catch(err){
+            res.status(400).send({
+                status:400,
+                err:err.message
+            })
+        }
+    },
     POST:async(req,res) => {
         try{ 
         const {news_title,news_body,news_pics} = req.body
@@ -41,7 +52,10 @@ module.exports = {
     },
     PUTchange:async(req,res) => {
         try{
-             const {is_deleted,news_id} = req.body
+             const {news_id} = req.body
+             const NewsArr = await model.AllNews()
+             const SortNews = NewsArr.find(e => e.news_id == news_id)
+             is_deleted = !SortNews.is_deleted
              res.send(await model.Change(is_deleted,news_id))
         }catch(err){
             res.status(400).send({

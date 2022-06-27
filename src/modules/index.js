@@ -8,13 +8,15 @@ const Courses = require('./Courses/Courses')
 const Order = require('./Order/Order')
 const Birthday = require('./Birthday/Birthday')
 const auth = require('../middlewares/auth')
-
+const uploadImg = require('../middlewares/multer')
+// console.log(uploadImg)
 router
   .post('/admin',Admin.ADMIN)
 //   network_data
   .get('/network',Network.Network)
        // news
    .get('/news',News.GET)
+   .get('/allnews',News.GETALL)
    .post('/news',News.POST)
    .put('/updatenews',News.PUT)
    .put('/changedel',News.PUTchange)
