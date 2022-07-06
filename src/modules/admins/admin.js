@@ -19,7 +19,7 @@ module.exports = {
         }catch(err){
             res.status(400).send({
                 status:400,
-                err:err.massage
+                err:'name or password not true'
             })
         }
     }

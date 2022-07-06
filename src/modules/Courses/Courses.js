@@ -24,7 +24,7 @@ module.exports = {
     POST:async(req,res) => {
         try{ 
         const {course_name,course_short,course_more,course_pics} = req.body
-        console.log(course_name,course_short,course_more,course_pics);
+        // console.log(course_name,course_short,course_more,course_pics);
         // console.log(course_pics);
         res.send(await model.C_Courses(course_name,course_short,course_more,course_pics))
       }catch(err){

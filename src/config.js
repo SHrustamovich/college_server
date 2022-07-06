@@ -1,5 +1,5 @@
 const connection = {
-    connectionString: 'postgres://postgres:shohruh0949@localhost:5432/kxm',
+    connectionString: 'postgres://nmfvmito:6FljDRSUyMzNxnbJHDwU8ldiK_TWNZNy@hattie.db.elephantsql.com/nmfvmito',
     connectionElString:''
 }
 const PORT = process.env.port || 9000
